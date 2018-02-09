@@ -1,9 +1,9 @@
-Screens screen;
+Screens screens;
 Player player;
 
 void setup() {
   size(600, 800, P2D);
-  screen = new Screens(0);
+  screens = new Screens(0);
 }
 
 
@@ -15,5 +15,5 @@ void draw() {
   //} else if (screen == 2) {
   //  screen.gameOverScreen();
   //}
-  screen.whichScreen();
+  screens.whichScreen();
 }

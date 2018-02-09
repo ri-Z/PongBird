@@ -28,6 +28,7 @@ class Screens {
 
   public void gameplayScreen() {
     background(255);
+    Player.drawPlayer();
   }
 
   // fazer o ecra dar blink como no initialScreen(), mas alternar o preto e o branco
@@ -37,10 +38,11 @@ class Screens {
 
   void whichScreen() {
     if (screen == 0) {
-      initialScreen();
+      //initialScreen();
+      gameplayScreen();
     } else if (screen == 1) {
       println("aqui");
-      gameplayScreen();
+      //gameplayScreen();
     } else if (screen == 2) {
       gameOverScreen();
     }
