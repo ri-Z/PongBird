@@ -41,7 +41,7 @@ class Screens {
       //initialScreen();
       gameplayScreen();
     } else if (screen == 1) {
-      println("aqui");
+      println("aqui"); //not getting here for some reason | not working
       //gameplayScreen();
     } else if (screen == 2) {
       gameOverScreen();
