@@ -7,7 +7,7 @@ class Screens {
   }
 
 
-  void startGame() {
+  public void startGame() {
     screen = 1;
   }
 
@@ -29,6 +29,7 @@ class Screens {
   public void gameplayScreen() {
     background(255);
     Player.drawPlayer();
+    RacketPlatform.drawRacketPlatform();
   }
 
   // fazer o ecra dar blink como no initialScreen(), mas alternar o preto e o branco
@@ -36,7 +37,7 @@ class Screens {
   }
 
 
-  void whichScreen() {
+  public void whichScreen() {
     if (screen == 0) {
       //initialScreen();
       gameplayScreen();

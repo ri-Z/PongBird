@@ -1,11 +1,11 @@
 class Player {
 
-  private int playerX; 
-  private int playerY;
-  private int playerSize = 20;
-  private int playerColor = color(0);
+  private float playerX; 
+  private float playerY;
+  private float playerSize = 20;
+  private color playerColor = color(0);
 
-  Player(int playerX, int playerY, int playerSize, int playerColor) {
+  Player(float playerX, float playerY, float playerSize, color playerColor) {
     this.playerX = playerX;
     this.playerY = playerY;
     this.playerSize = playerSize;

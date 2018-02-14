@@ -1,5 +1,7 @@
 Screens screens;
 Player player;
+Gravity gravity;
+RacketPlatform racketPlatform;
 
 void setup() {
   size(600, 800, P2D);
