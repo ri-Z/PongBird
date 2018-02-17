@@ -1,8 +1,9 @@
 class Screens {
 
   Player player;
+  Gravity gravity;
   RacketPlatform racketPlatform;
-  
+
   private int screen = 0;
 
   Screens(int screen) {
@@ -31,8 +32,15 @@ class Screens {
 
   public void gameplayScreen() {
     background(255);
+    player = new Player(width/4, height/2, 20, color(0), 0);
+    gravity = new Gravity (1, 0, 0.0001, 0.1);
+    racketPlatform = new RacketPlatform(color(0), 150, 15);
+
     player.drawPlayer();
+    gravity.applyGravity();
+    gravity.Collision();
     racketPlatform.drawRacketPlatform();
+    racketPlatform.racketPlatformBounce();
   }
 
   // fazer o ecra dar blink como no initialScreen(), mas alternar o preto e o branco

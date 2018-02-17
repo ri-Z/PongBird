@@ -6,6 +6,8 @@ RacketPlatform racketPlatform;
 void setup() {
   size(600, 800, P2D);
   screens = new Screens(0);
+  //player = new Player(width/4, height/2, 20, color(0), 0);
+  //racketPlatform = new RacketPlatform(color(0), 150, 15);
 }
 
 
