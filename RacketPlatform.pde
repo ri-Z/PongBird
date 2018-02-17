@@ -31,7 +31,8 @@ class RacketPlatform {
         if (overhead < 0) //if it is negative the mouse is somewhere below in the previous frame so our mouse is moving up. In this case, we want to add an extra speed to the ball and move it a little further than  a regular bounce to simulate the effect of hitting the ball with the platform. 
         {
           player.playerY += overhead;
-          gravity.playerSpeedVert += overhead;
+          player.playerSpeedHzt = (player.playerX - mouseX)/5;
+          player.playerSpeedVert += overhead;
         }
       }
     }
