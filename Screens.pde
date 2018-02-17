@@ -43,6 +43,8 @@ class Screens {
     racketPlatform.racketPlatformBounce();
     player.applyHztSpeed();
     player.Collision();
+    //walls.wallAdder();
+    //walls.wallHandler();
   }
 
   // fazer o ecra dar blink como no initialScreen(), mas alternar o preto e o branco
