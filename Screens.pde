@@ -3,6 +3,7 @@ class Screens {
   Player player;
   Gravity gravity;
   RacketPlatform racketPlatform;
+  Walls walls;
 
   private int screen = 0;
 
@@ -43,8 +44,8 @@ class Screens {
     racketPlatform.racketPlatformBounce();
     player.applyHztSpeed();
     player.Collision();
-    //walls.wallAdder();
-    //walls.wallHandler();
+    walls.addWall();
+    walls.handleWall();
   }
 
   // fazer o ecra dar blink como no initialScreen(), mas alternar o preto e o branco

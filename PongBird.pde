@@ -2,6 +2,7 @@ Screens screens;
 Player player;
 Gravity gravity;
 RacketPlatform racketPlatform;
+Walls walls;
 
 void setup() {
   size(600, 800, P2D);
