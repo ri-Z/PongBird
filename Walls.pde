@@ -61,7 +61,8 @@ class Walls {
 
   public void removeWall(int index) {
     int[] wall = walls.get(index);
-    if (wall[0]+wall[2] <= 0) {
+
+    if (wall[0] + wall[2] <= 0) {
       walls.remove(index);
     }
   }
