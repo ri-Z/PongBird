@@ -18,7 +18,8 @@ class RacketPlatform {
     rect(mouseX, mouseY, racketWidth, racketHeight);
   }
 
-  public void racketPlatformBounce() { //collisions between the platform and player
+  //collisions between the platform and player
+  public void racketPlatformBounce() {
     float overhead;
 
     overhead = mouseY - pmouseY; //The system variable pmouseY always contains the vertical position of the mouse in the frame previous to the current frame. Since the movement of the mouse might be fast, the distance between the ball and the platform may not be correctly calculated in between frames.

@@ -16,11 +16,24 @@ class Screens {
     screen = 1;
   }
 
-  public void keyPressed(char key, int keyCode) { //meter a spacebar
+  public void restartGame() {
+    //score = 0;
+    player.playerX = width/4;
+    player.playerY = height/2;
+    walls.addLastTime = 0;
+    //walls.clear();
+    screen = 0;
+  }
+
+  public void keyPressed(char key, int keyCode) { //clicar na spacebar
     if (key == CODED) {
       if (keyCode ==' ') {
         if (screen == 0)
           startGame();
+
+        if (screen == 2) {
+          restartGame();
+        }
       }
     }
   }
@@ -28,6 +41,8 @@ class Screens {
   public void initialScreen() {
     background(0);
     textAlign(CENTER);
+    fill(255);
+    textSize(35);
     text("Click to start", width/2, height/2);
   }
 
@@ -50,6 +65,13 @@ class Screens {
 
   // fazer o ecra dar blink como no initialScreen(), mas alternar o preto e o branco
   public void gameOverScreen() {
+    background(0);
+    textAlign(CENTER);
+    fill(255);
+    textSize(30);
+    text("Game Over", height/2, width/2 - 20);
+    textSize(15);
+    text("Press Spacebar to Restart", height/2, width/2 + 10);
   }
 
 
