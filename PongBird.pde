@@ -6,8 +6,9 @@ Walls walls;
 
 void setup() {
   size(600, 800, P2D);
+  smooth();
   screens = new Screens(0);
-  player = new Player(/*width/4*/width/4, /*height/2*/height/2, 20, color(0), 0, 0);
+  player = new Player(width/4, height/2, 20, color(0), 0, 0);
   gravity = new Gravity (1, 0.0001, 0.1);
   racketPlatform = new RacketPlatform(color(0), 150, 15);
   walls = new Walls(6, 950, 0, 250, 350, 80, color(0));
@@ -18,7 +19,7 @@ void draw() {
 
   if (screens.screen == 0) {
     screens.initialScreen();
-    //screens.screen++;
+    screens.screen++;
   } else if (screens.screen == 1) {
     screens.gameplayScreen();
     //screens.screen++;
@@ -35,6 +36,7 @@ void draw() {
   player.Collision();
   walls.addWall();
   walls.handleWall();
+  walls.showScore();
   //screens.whichScreen();
 }
 
@@ -42,9 +44,9 @@ void draw() {
 void keyPressed(char key, int keyCode) { //clicar na spacebar
   if (key == CODED) {
     if (keyCode == LEFT) {
-      if (screens.screen == 0)
+      if (screens.screen == 0) {
         screens.startGame();
-
+      }
       if (screens.screen == 2) {
         screens.restartGame();
       }

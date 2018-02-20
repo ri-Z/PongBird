@@ -11,6 +11,8 @@ class Walls {
 
   ArrayList<int[]> walls = new ArrayList<int[]>(); //store information about the gaps between walls
 
+  int score;
+
   Walls(int wallSpeed, int wallInterval, float addLastTime, int minGapHeight, int maxGapHeight, int wallWidth, color wallColors) {
     this.wallSpeed = wallSpeed;
     this.wallInterval = wallInterval;
@@ -35,7 +37,7 @@ class Walls {
       randomY = round(random(0, height - randomHeight));
 
       //gapWallX, gapWallY, gapWallWidth, gapWallHeight
-      int[] randomWall = {width, randomY, wallWidth, randomHeight};
+      int[] randomWall = {width, randomY, wallWidth, randomHeight, 0}; // last 0 is the score
 
       walls.add(randomWall);
       addLastTime = millis();
@@ -83,6 +85,7 @@ class Walls {
     int gapWallY = wall[1];
     int gapWallWidth = wall[2];
     int gapWallHeight = wall[3];
+    int wallScore = wall[4];
 
     //top wall settings
     int topWallX = gapWallX;
@@ -127,7 +130,28 @@ class Walls {
       //player.playerSpeedHzt = 0;
       //screens.gameOverScreen();
     }
+
+
+    //if it passes a wall it's set to 1, if not is set to 0
+    if (player.playerX + (player.playerSize/2) > gapWallX + (gapWallWidth/2) && wallScore == 0) {
+      wallScore = 1;
+      wall[4] = 1;
+      println(wallScore);
+      score();
+    }
   }
+
+  public void score() {
+    score++;
+  }
+
+  public void showScore() {
+    textAlign(CENTER);
+    fill(0);
+    textSize(30);
+    text(score, height/2, 50);
+  }
+
 
   //each loop call these methods
   public void handleWall() {

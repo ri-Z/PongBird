@@ -3,13 +3,11 @@ class RacketPlatform {
   private color racketColor = color(0);
   private float racketWidth = 150;
   private float racketHeight = 15;
-  //private float racketBounceRate = 20;
 
   RacketPlatform(color racketColor, float racketWidth, float racketHeight/*, float racketBounceRate*/) {
     this.racketColor = racketColor;
     this.racketWidth = racketWidth;
     this.racketHeight = racketHeight;
-    //this.racketBounceRate = racketBounceRate;
   }
 
   public void drawRacketPlatform() {
@@ -32,7 +30,7 @@ class RacketPlatform {
         if (overhead < 0) //if it is negative the mouse is somewhere below in the previous frame so our mouse is moving up. In this case, we want to add an extra speed to the ball and move it a little further than  a regular bounce to simulate the effect of hitting the ball with the platform. 
         {
           player.playerY += overhead;
-          player.playerSpeedHzt = (player.playerX - mouseX)/40; //calculates playerSpeedHzt based on the distance between playerX and mouseX, dividing it for some value to make it look more realistic
+          player.playerSpeedHzt = (player.playerX - mouseX)/15; //calculates playerSpeedHzt based on the distance between playerX and mouseX, dividing it for some value to make it look more realistic
           player.playerSpeedVert += overhead/3;
         }
       }

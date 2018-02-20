@@ -16,8 +16,9 @@ class Screens {
     screen = 1;
   }
 
+
   public void restartGame() {
-    //score = 0;
+    walls.score = 0;
     player.playerX = width/4;
     player.playerY = height/2;
     walls.addLastTime = 0;
