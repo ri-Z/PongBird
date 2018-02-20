@@ -4,8 +4,8 @@ class Walls {
   private int wallSpeed = 6;
   private int wallInterval = 1000;
   private float addLastTime = 0;
-  private int minGapHeight = 250;
-  private int maxGapHeight = 350;
+  private int minGapHeight = 200;
+  private int maxGapHeight = 300;
   private int wallWidth = 80;
   private color wallColors = color(0);
 
@@ -102,9 +102,10 @@ class Walls {
       (player.playerY + (player.playerSize/2) > topWallY) &&
       (player.playerY - (player.playerSize/2) < topWallY + topWallHeight)) {
 
-      wallSpeed = 0;
-      gravity.gravity = 5000;
-      screens.gameOverScreen();
+      //wallSpeed = 0;
+      //gravity.gravity = 5000;
+      //player.playerSpeedHzt = 0;
+      //screens.gameOverScreen();
     }
 
     //collision with lower wall
@@ -113,16 +114,18 @@ class Walls {
       (player.playerY + (player.playerSize/2) > botWallY) &&
       (player.playerY - (player.playerSize/2) < botWallY + botWallHeight)) {
 
-      wallSpeed = 0;
-      gravity.gravity = 5000;
-      screens.gameOverScreen();
+      //wallSpeed = 0;
+      //gravity.gravity = 5000;
+      //player.playerSpeedHzt = 0;
+      //screens.gameOverScreen();
     }
-    
+
     //collision with the floor
     if (player.playerY + (player.playerSize/2) > height) {
-      wallSpeed = 0;
-      gravity.gravity = 5000;
-      screens.gameOverScreen();
+      //wallSpeed = 0;
+      //gravity.gravity = 5000;
+      //player.playerSpeedHzt = 0;
+      //screens.gameOverScreen();
     }
   }
 

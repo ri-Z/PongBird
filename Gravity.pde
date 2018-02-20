@@ -1,7 +1,5 @@
 class Gravity {
 
-  Player player;
-
   private float gravity = 1;
   private float airResistance = 0.0001;
   private float friction = 0.1;

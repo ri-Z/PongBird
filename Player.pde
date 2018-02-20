@@ -1,10 +1,10 @@
 class Player {
 
   private float playerX; 
-  public float playerY;
+  private float playerY;
   private float playerSize = 20;
   private color playerColor = color(0);
-  public float playerSpeedVert = 0;
+  private float playerSpeedVert = 0;
   private float playerSpeedHzt = 0;
 
   Player(float playerX, float playerY, float playerSize, color playerColor, float playerSpeedVert, float playerSpeedHzt) {
@@ -18,7 +18,7 @@ class Player {
 
   public void drawPlayer() {
     fill(playerColor);
-    ellipse(playerX, playerY, playerSize, playerColor);
+    ellipse(playerX, playerY, playerSize, playerSize);
   }
 
   public void applyHztSpeed() {
