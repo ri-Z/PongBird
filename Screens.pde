@@ -1,10 +1,5 @@
 class Screens {
 
-  Player player;
-  Gravity gravity;
-  RacketPlatform racketPlatform;
-  Walls walls;
-
   private int screen = 0;
 
   Screens(int screen) {
@@ -22,22 +17,15 @@ class Screens {
     player.playerX = width/4;
     player.playerY = height/2;
     walls.addLastTime = 0;
-    //walls.clear();
-    screen = 0;
+    screen = 1;
+
+    // restart all the values of the variables and starting Screens(1)
+    setup(); 
+    {
+      screens = new Screens(1);
+    }
   }
 
-  //public void keyPressed(char key, int keyCode) { //clicar na spacebar
-  //  if (key == CODED) {
-  //    if (keyCode ==' ') {
-  //      if (screen == 0)
-  //        startGame();
-
-  //      if (screen == 2) {
-  //        restartGame();
-  //      }
-  //    }
-  //  }
-  //}
 
   public void initialScreen() {
     background(0);
@@ -54,20 +42,16 @@ class Screens {
   public void gameplayScreen() {
     background(255);
 
-    //player = new Player(/*width/4*/width/4, /*height/2*/height/2, 20, color(0), 0, 0);
-    //gravity = new Gravity (1, 0.0001, 0.1);
-    //racketPlatform = new RacketPlatform(color(0), 150, 15);
-    //walls = new Walls(6, 950, 0, 250, 350, 80, color(0));
-
-    //player.drawPlayer();
-    //gravity.applyGravity();
-    //gravity.Collision();
-    //racketPlatform.drawRacketPlatform();
-    //racketPlatform.racketPlatformBounce();
-    //player.applyHztSpeed();
-    //player.Collision();
-    //walls.addWall();
-    //walls.handleWall();
+    player.drawPlayer();
+    gravity.applyGravity();
+    gravity.Collision();
+    racketPlatform.drawRacketPlatform();
+    racketPlatform.racketPlatformBounce();
+    player.applyHztSpeed();
+    player.Collision();
+    walls.addWall();
+    walls.handleWall();
+    walls.showScore();
   }
 
   // fazer o ecra dar blink como no initialScreen(), mas alternar o preto e o branco
@@ -75,6 +59,8 @@ class Screens {
     background(0);
     textAlign(CENTER);
     fill(255);
+    textSize(70);
+    text(walls.score, width/2, height/2 - 100);
     textSize(30);
     text("Game Over", width/2, height/2 - 20);
     textSize(15);
@@ -82,15 +68,13 @@ class Screens {
   }
 
 
-  //public void whichScreen() {
-  //  if (screen == 0) {
-  //    initialScreen();
-  //    //gameplayScreen();
-  //  } else if (screen == 1) {
-  //    println("aqui"); //not getting here for some reason | not working
-  //    gameplayScreen();
-  //  } else if (screen == 2) {
-  //    gameOverScreen();
-  //  }
-  //}
+  public void whichScreen() {
+    if (screen == 0) {
+      initialScreen();
+    } else if (screen == 1) {
+      gameplayScreen();
+    } else if (screen == 2) {
+      gameOverScreen();
+    }
+  }
 }

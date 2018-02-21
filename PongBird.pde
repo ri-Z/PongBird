@@ -16,52 +16,17 @@ void setup() {
 
 
 void draw() {
-
-  if (screens.screen == 0) {
-    screens.initialScreen();
-    screens.screen++;
-  } else if (screens.screen == 1) {
-    screens.gameplayScreen();
-    //screens.screen++;
-  } else if (screens.screen == 2) {
-    screens.gameOverScreen();
-  }
-
-  player.drawPlayer();
-  gravity.applyGravity();
-  gravity.Collision();
-  racketPlatform.drawRacketPlatform();
-  racketPlatform.racketPlatformBounce();
-  player.applyHztSpeed();
-  player.Collision();
-  walls.addWall();
-  walls.handleWall();
-  walls.showScore();
-  //screens.whichScreen();
+  screens.whichScreen();
 }
 
 
-void keyPressed(char key, int keyCode) { //clicar na spacebar
-  if (key == CODED) {
-    if (keyCode == LEFT) {
-      if (screens.screen == 0) {
-        screens.startGame();
-      }
-      if (screens.screen == 2) {
-        screens.restartGame();
-      }
+void keyPressed() { //clicar na spacebar
+  if (keyCode == ' ') {
+    if (screens.screen == 0) {
+      screens.startGame();
+    }
+    if (screens.screen == 2) {
+      screens.restartGame();
     }
   }
 }
-
-//public void whichScreen() {
-//  if (screens.screen == 0) {
-//    screens.initialScreen();
-//    //gameplayScreen();
-//  } else if (screens.screen == 1) {
-//    println("aqui"); //not getting here for some reason | not working
-//    screens.gameplayScreen();
-//  } else if (screens.screen == 2) {
-//    screens.gameOverScreen();
-//  }
-//}

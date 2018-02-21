@@ -56,9 +56,11 @@ class Walls {
 
     // draw actual walls
     rectMode(CORNER);
+    //noStroke();
+    //strokeCap(ROUND);
     fill(wallColors);
-    rect(gapWallX, 0, gapWallWidth, gapWallY);
-    rect(gapWallX, gapWallY + gapWallHeight, gapWallWidth, height - (gapWallY + gapWallHeight));
+    rect(gapWallX, 0, gapWallWidth, gapWallY, 0, 0, 20, 20);
+    rect(gapWallX, gapWallY + gapWallHeight, gapWallWidth, height - (gapWallY + gapWallHeight), 20, 20, 0, 0);
   }
 
   //changes X location based on the wallSpeed
@@ -76,6 +78,14 @@ class Walls {
     }
   }
 
+  public void resetScore(int index) {
+    wallSpeed = 0;
+    gravity.gravity = 5000;
+    player.playerSpeedHzt = 0;
+    screens.gameOverScreen();
+    screens.screen = 2;
+    removeWall(index);
+  }
 
   public void wallCollision(int index) {
     int[] wall = walls.get(index);
@@ -105,10 +115,7 @@ class Walls {
       (player.playerY + (player.playerSize/2) > topWallY) &&
       (player.playerY - (player.playerSize/2) < topWallY + topWallHeight)) {
 
-      //wallSpeed = 0;
-      //gravity.gravity = 5000;
-      //player.playerSpeedHzt = 0;
-      //screens.gameOverScreen();
+      resetScore(index);
     }
 
     //collision with lower wall
@@ -117,18 +124,12 @@ class Walls {
       (player.playerY + (player.playerSize/2) > botWallY) &&
       (player.playerY - (player.playerSize/2) < botWallY + botWallHeight)) {
 
-      //wallSpeed = 0;
-      //gravity.gravity = 5000;
-      //player.playerSpeedHzt = 0;
-      //screens.gameOverScreen();
+      resetScore(index);
     }
 
     //collision with the floor
     if (player.playerY + (player.playerSize/2) > height) {
-      //wallSpeed = 0;
-      //gravity.gravity = 5000;
-      //player.playerSpeedHzt = 0;
-      //screens.gameOverScreen();
+      //resetScore(index);
     }
 
 
@@ -136,7 +137,7 @@ class Walls {
     if (player.playerX + (player.playerSize/2) > gapWallX + (gapWallWidth/2) && wallScore == 0) {
       wallScore = 1;
       wall[4] = 1;
-      println(wallScore);
+      //println(wallScore);
       score();
     }
   }
@@ -146,10 +147,12 @@ class Walls {
   }
 
   public void showScore() {
-    textAlign(CENTER);
-    fill(0);
-    textSize(30);
-    text(score, height/2, 50);
+    if (screens.screen == 1) {
+      textAlign(CENTER);
+      textSize(30);
+      fill(250, 200, 0);
+      text(score, width/2, 50);
+    }
   }
 
 
