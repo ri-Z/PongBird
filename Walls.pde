@@ -79,6 +79,7 @@ class Walls {
   }
 
   public void resetScore(int index) {
+    fileRip.play();
     wallSpeed = 0;
     gravity.gravity = 5000;
     player.playerSpeedHzt = 0;
@@ -143,6 +144,7 @@ class Walls {
   }
 
   public void score() {
+    fileScore.play();
     score++;
   }
 

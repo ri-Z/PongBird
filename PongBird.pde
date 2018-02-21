@@ -1,3 +1,12 @@
+import processing.sound.*;
+
+SoundFile fileScore;
+SoundFile fileRip;
+String audioScore = "score.mp3";
+String audioRip = "rip.mp3";
+String pathScore;
+String pathRip;
+
 Screens screens;
 Player player;
 Gravity gravity;
@@ -7,6 +16,14 @@ Walls walls;
 void setup() {
   size(600, 800, P2D);
   smooth();
+  
+  pathScore = sketchPath(audioScore);
+  pathRip = sketchPath(audioRip);
+  fileScore = new SoundFile(this, pathScore);
+  fileRip = new SoundFile(this, pathRip);
+  //fileScore.play();
+  //fileRip.play();
+  
   screens = new Screens(0);
   player = new Player(width/4, height/2, 20, color(0), 0, 0);
   gravity = new Gravity (1, 0.0001, 0.1);
